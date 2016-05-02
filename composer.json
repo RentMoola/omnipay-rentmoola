@@ -1,0 +1,34 @@
+{
+  "name": "omnipay/rentmoola",
+  "type": "library",
+  "description": "RentMoola driver for the Omnipay payment processing library",
+  "keywords": [
+    "rentmoola",
+    "RentMoola",
+    "cardsave",
+    "gateway",
+    "merchant",
+    "pay",
+    "payment"
+  ],
+  "authors": [
+    {
+      "name": "Geoff Shaw",
+      "email": "geoff@rentmoola.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": { "Omnipay\\RentMoola\\" : "src/" }
+  },
+  "require": {
+    "omnipay/common": "~2.0"
+  },
+  "require-dev": {
+    "omnipay/tests": "~2.0"
+  },
+  "extra": {
+    "branch-alias": {
+      "dev-master": "2.0.x-dev"
+    }
+  }
+}
