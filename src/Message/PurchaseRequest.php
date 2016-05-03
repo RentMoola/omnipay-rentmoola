@@ -6,6 +6,9 @@ use Omnipay\Common\Message\AbstractRequest;
 
 class PurchaseRequest extends AbstractRequest
 {
+    //TODO get endpoints
+    protected $liveEndpoint = 'https://example.com';
+    protected $testEndpoint = 'https://test.example.com';
     
     public function getUserId()
     {
@@ -37,13 +40,39 @@ class PurchaseRequest extends AbstractRequest
         return $this->setParameter('paymentMethodId', $data);
     }
     
+    public function getCode()
+    {
+        return $this->getParameter('code');
+    }
+
+    public function setCode($data)
+    {
+        return $this->setParameter('code', $data);
+    }
+    
     public function getData()
     {
-        // TODO: Implement getData() method.
+        $this->validate('amount');
+        $data = array();
+        
+        $data['userId'] = $this->getUserId();
+        $data['paymentMethodId'] = $this->getPaymentMethodId();
+        $data['destinationAccountId'] = $this->getDestinationAccountId();
+        $data['charges'] = array();
+        $data['charges']['amount'] =  $this->getAmount();
+        $data['charges']['code'] =  $this->getCode();
+        
+        return $data;
     }
     
     public function sendData($data)
     {
-        // TODO: Implement sendData() method.
+        //TODO Look at different implementations (passing request type here?)
+        return $this->response = new PurchaseResponse($this, $data);
+    }
+    
+    public function getEndpoint()
+    {
+        return $this->getTestMode() ? $this->testEndpoint : $this->liveEndpoint;
     }
 }

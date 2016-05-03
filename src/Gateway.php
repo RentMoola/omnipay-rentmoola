@@ -17,6 +17,7 @@ class Gateway extends AbstractGateway
             'userId' => '',
             'destinationAccountId' => '',
             'paymentMethodId' => '',
+            'code' => '',
             'testMode' => 'false'
         );
     }
@@ -57,6 +58,16 @@ class Gateway extends AbstractGateway
     public function setPaymentMethodId($data)
     {
         return $this->setParameter('paymentMethodId', $data);
+    }
+
+    public function getCode()
+    {
+        return $this->getParameter('code');
+    }
+
+    public function setCode($data)
+    {
+        return $this->setParameter('code', $data);
     }
 
     /*
