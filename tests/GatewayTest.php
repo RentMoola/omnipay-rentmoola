@@ -19,9 +19,4 @@ class GatewayTest extends GatewayTestCase
         $this->assertNotEmpty($name, 'RentMoola');
     }
     
-    public function testGetShortNameNotEmpty()
-    {
-        $name = $this->gateway->getShortName();
-        $this->assertNotEmpty($name, 'RentMoola');
-    }
 }

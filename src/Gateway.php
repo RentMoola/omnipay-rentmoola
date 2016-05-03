@@ -14,7 +14,10 @@ class Gateway extends AbstractGateway
     public function getDefaultParameters()
     {
         return array(
-            'userId' => ''
+            'userId' => '',
+            'destinationAccountId' => '',
+            'paymentMethodId' => '',
+            'testMode' => 'false'
         );
     }
 
@@ -22,12 +25,7 @@ class Gateway extends AbstractGateway
     {
         return 'RentMoola';
     }
-
-    public function getShortName()
-    {
-        return 'RentMoola';
-    }
-
+    
     /*
      * Getters and Setters
      */
@@ -41,8 +39,31 @@ class Gateway extends AbstractGateway
         return $this->setParameter('userId', $data);
     }
     
+    public function getDestinationAccountId()
+    {
+        return $this->getParameter('destinationAccountId');
+    }
+    
+    public function setDestinationAccountId($data)
+    {
+        return $this->setParameter('destinationAccountId', $data);
+    }
 
+    public function getPaymentMethodId()
+    {
+        return $this->getParameter('paymentMethodId');
+    }
+
+    public function setPaymentMethodId($data)
+    {
+        return $this->setParameter('paymentMethodId', $data);
+    }
+
+    /*
+     * Calls to purchase requests/responses
+     */
     public function purchase(array $parameters = array())
     {
+        return $this->createRequest('\Omnipay\RentMoola\Message\PurchaseRequest', $parameters);
     }
 }
