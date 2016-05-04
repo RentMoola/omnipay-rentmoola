@@ -18,7 +18,7 @@ class Gateway extends AbstractGateway
             'destinationAccountId' => '',
             'paymentMethodId' => '',
             'code' => '',
-            'testMode' => 'false'
+            'testMode' => false
         );
     }
 

@@ -13,7 +13,11 @@ class GatewayTest extends GatewayTestCase
         $this->gateway = new Gateway($this->getHttpClient(), $this->getHttpRequest());
         $this->gateway->setTestMode(true);
         $this->options = array(
-            'amount' => '10.00'
+            "userId" => "5b7246ed-b144-4517-a575-36df31bcdd47",
+            "paymentMethodId" => "961a44b1-8ee5-4ca9-9184-d8deaa5bf88c",
+            "destinationAccountId" => "41fcd0ff-7c57-403a-9bd5-e850056fdc2a",
+            "code" => "global.payments.other",
+            "amount" => 10.00,
         );
     }
 
@@ -31,14 +35,9 @@ class GatewayTest extends GatewayTestCase
         $this->assertFalse($response->isSuccessful());
         $this->assertTrue($response->isRedirect());
         $this->assertNull($response->getTransactionReference());
-        $this->assertContains('https://test.example.com?', $response->getRedirectUrl());
+        $this->assertContains('https://192.168.0.18:8443/api/v2/payments?', $response->getRedirectUrl());
 
-//        echo "\n";
-//        echo $response->getRedirectUrl();
-//        echo "\n";
-//        echo "\n";
-        
-        $this->assertEquals($request->getAmount(), '10.00');
+        $this->assertSame($request->getAmount(), 10.00);
     }
 
     /**

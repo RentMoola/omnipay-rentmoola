@@ -7,10 +7,9 @@ use Omnipay\Common\Message\RedirectResponseInterface;
 
 class PurchaseResponse extends AbstractResponse implements RedirectResponseInterface
 {
-    /**
-     * When you do a 'purchase' the request is never successful
-     * because you need to redirect off-site to complete the purchase.
-     */
+    protected $liveEndpoint = 'https://rentmoola.com/api/v2';
+    protected $testEndpoint = 'https://192.168.0.18:8443/api/v2';
+    
     public function isSuccessful()
     {
         return false;
@@ -20,10 +19,11 @@ class PurchaseResponse extends AbstractResponse implements RedirectResponseInter
     {
         return true;
     }
-    
+
     public function getRedirectUrl()
     {
-        return $this->getRequest()->getEndpoint().'?'.http_build_query($this->data);
+        $endpoint = $this->getRequest()->getTestMode() ? $this->testEndpoint : $this->liveEndpoint;
+        return $endpoint.'?'.http_build_query($this->data);
     }
 
     public function getRedirectMethod()
@@ -33,6 +33,6 @@ class PurchaseResponse extends AbstractResponse implements RedirectResponseInter
     
     public function getRedirectData()
     {
-        return null;
+        return array();
     }
 }
