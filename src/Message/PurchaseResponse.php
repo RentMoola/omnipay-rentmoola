@@ -7,7 +7,7 @@ use Omnipay\Common\Message\RedirectResponseInterface;
 
 class PurchaseResponse extends AbstractResponse implements RedirectResponseInterface
 {
-    protected $liveEndpoint = 'https://rentmoola.com/api/v2';
+    protected $liveEndpoint = 'https://www.rentmoola.com/api/v2';
     protected $testEndpoint = 'https://192.168.0.18:8443/api/v2';
     
     public function isSuccessful()
