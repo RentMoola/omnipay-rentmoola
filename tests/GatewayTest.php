@@ -35,7 +35,7 @@ class GatewayTest extends GatewayTestCase
         $this->assertFalse($response->isSuccessful());
         $this->assertTrue($response->isRedirect());
         $this->assertNull($response->getTransactionReference());
-        $this->assertContains('https://192.168.0.18:8443/api/v2/payments?', $response->getRedirectUrl());
+        $this->assertContains('https://sandbox.rentmoola.com/api/v2/payments?', $response->getRedirectUrl());
 
         $this->assertSame($request->getAmount(), 10.00);
     }

@@ -10,7 +10,7 @@ namespace Omnipay\RentMoola\Message;
 abstract class AbstractRequest extends \Omnipay\Common\Message\AbstractRequest
 {
     protected $liveEndpoint = 'https://rentmoola.com/api/v2';
-    protected $testEndpoint = 'https://192.168.0.18:8443/api/v2';
+    protected $testEndpoint = 'https://sandbox.rentmoola.com/api/v2';
 
     public function getUserId()
     {
@@ -85,10 +85,10 @@ abstract class AbstractRequest extends \Omnipay\Common\Message\AbstractRequest
         $body = $data ? http_build_query($data) : null;
         $httpRequest = $this->httpClient->createRequest($method, $url, null, $body);
         $httpRequest->setHeader('Content-type', 'application/json');
-        
-//        echo "\n";
-//        echo $httpRequest;
-//        echo "\n";
+
+        echo "\n";
+        echo $httpRequest;
+        echo "\n";
         return $httpRequest->send();
-    } 
+    }
 }
