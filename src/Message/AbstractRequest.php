@@ -57,16 +57,39 @@ abstract class AbstractRequest extends \Omnipay\Common\Message\AbstractRequest
         return $this->getTestMode() ? $this->testEndpoint : $this->liveEndpoint;
     }
 
+    public function getUserName()
+    {
+        return $this->getParameter('userName');
+    }
+
+    public function setUserName($data)
+    {
+        return $this->setParameter('userName', $data);
+    }
+
+    public function getPassword()
+    {
+        return $this->getParameter('password');
+    }
+
+    public function setPassword($data)
+    {
+        return $this->setParameter('password', $data);
+    }
+
+    /**
+     * Uses the api username and password to return the authorization value
+     * required the the http request header
+     * @return mixed
+     */
     public function getAuthorizationValue()
     {
-        return $this->getParameter('authorizationValue');
+        return 'Basic '.
+            base64_encode($this->getUserName().
+            ":".
+            $this->getPassword());
     }
-    
-    public function setAuthorizationValue($data)
-    {
-        return $this->setParameter('authorizationValue', $data);
-    }
-    
+
     protected function sendRequest($method, $action, $data = null)
     {
         /*

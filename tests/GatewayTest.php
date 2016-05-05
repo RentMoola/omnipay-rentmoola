@@ -9,7 +9,7 @@ class GatewayTest extends GatewayTestCase
     public function setUp()
     {
         parent::setUp();
-        
+
         $this->gateway = new Gateway($this->getHttpClient(), $this->getHttpRequest());
         $this->gateway->setTestMode(true);
         $this->options = array(
@@ -18,7 +18,8 @@ class GatewayTest extends GatewayTestCase
             "destinationAccountId" => "23535718-e3a9-4b13-a28c-85f0838083b1",
             "code" => "global.payments.other",
             "amount" => '10.00',
-            "authorizationValue" => 'Basic MzJiNTM1MDYtZDNiMi00MDVhLThjODMtOWI1YzgyYjY3NTc1OnRlc3Q=',
+            "username" => '32b53506-d3b2-405a-8c83-9b5c82b67575',
+            "password" => 'test',
         );
     }
 
@@ -27,14 +28,14 @@ class GatewayTest extends GatewayTestCase
         $name = $this->gateway->getName();
         $this->assertNotEmpty($name, 'RentMoola');
     }
-    
+
     public function testPurchase()
     {
         $request = $this->gateway->purchase($this->options);
         $response = $request->send();
 
         $this->assertSame($request->getAmount(), '10.00');
-        
+
         $this->assertFalse($response->isSuccessful());
         $this->assertTrue($response->isRedirect());
         $this->assertNull($response->getTransactionReference());
@@ -47,7 +48,7 @@ class GatewayTest extends GatewayTestCase
     public function testPurchaseInvalidAmount()
     {
         $this->options['amount'] = '';
-        
+
         $request = $this->gateway->purchase($this->options);
         $this->assertEmpty($request->getAmount());
     }

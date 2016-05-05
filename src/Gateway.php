@@ -26,7 +26,7 @@ class Gateway extends AbstractGateway
     {
         return 'RentMoola';
     }
-    
+
     /*
      * Getters and Setters
      */
@@ -34,17 +34,17 @@ class Gateway extends AbstractGateway
     {
         return $this->getParameter('userId');
     }
-    
+
     public function setUserId($data)
     {
         return $this->setParameter('userId', $data);
     }
-    
+
     public function getDestinationAccountId()
     {
         return $this->getParameter('destinationAccountId');
     }
-    
+
     public function setDestinationAccountId($data)
     {
         return $this->setParameter('destinationAccountId', $data);
@@ -70,14 +70,29 @@ class Gateway extends AbstractGateway
         return $this->setParameter('code', $data);
     }
 
+    public function getUserName()
+    {
+        return $this->getParameter('userName');
+    }
+
+    public function setUserName($data)
+    {
+        return $this->setParameter('userName', $data);
+    }
+
+    public function getPassword()
+    {
+        return $this->getParameter('password');
+    }
+
+    public function setPassword($data)
+    {
+        return $this->setParameter('password', $data);
+    }
+
     public function getAuthorizationValue()
     {
         return $this->getParameter('authorizationValue');
-    }
-
-    public function setAuthorizationValue($data)
-    {
-        return $this->setParameter('authorizationValue', $data);
     }
 
     /*
