@@ -18,8 +18,7 @@ class Gateway extends AbstractGateway
             'destinationAccountId' => '',
             'paymentMethodId' => '',
             'code' => '',
-            //TODO Change this to false after done testing
-            'testMode' => true
+            'testMode' => false
         );
     }
 
@@ -69,6 +68,16 @@ class Gateway extends AbstractGateway
     public function setCode($data)
     {
         return $this->setParameter('code', $data);
+    }
+
+    public function getAuthorizationValue()
+    {
+        return $this->getParameter('authorizationValue');
+    }
+
+    public function setAuthorizationValue($data)
+    {
+        return $this->setParameter('authorizationValue', $data);
     }
 
     /*

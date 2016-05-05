@@ -13,11 +13,12 @@ class GatewayTest extends GatewayTestCase
         $this->gateway = new Gateway($this->getHttpClient(), $this->getHttpRequest());
         $this->gateway->setTestMode(true);
         $this->options = array(
-            "userId" => "5b7246ed-b144-4517-a575-36df31bcdd47",
-            "paymentMethodId" => "961a44b1-8ee5-4ca9-9184-d8deaa5bf88c",
-            "destinationAccountId" => "41fcd0ff-7c57-403a-9bd5-e850056fdc2a",
+            "userId" => "24a58d3c-4774-48bb-803a-b0ccc6b2d8d5",
+            "paymentMethodId" => "c4ec7ad4-5b20-456a-8ab5-5ad5c2300a17",
+            "destinationAccountId" => "23535718-e3a9-4b13-a28c-85f0838083b1",
             "code" => "global.payments.other",
-            "amount" => 10.00,
+            "amount" => '10.00',
+            "authorizationValue" => 'Basic MzJiNTM1MDYtZDNiMi00MDVhLThjODMtOWI1YzgyYjY3NTc1OnRlc3Q=',
         );
     }
 
@@ -31,13 +32,13 @@ class GatewayTest extends GatewayTestCase
     {
         $request = $this->gateway->purchase($this->options);
         $response = $request->send();
+
+        $this->assertSame($request->getAmount(), '10.00');
         
         $this->assertFalse($response->isSuccessful());
         $this->assertTrue($response->isRedirect());
         $this->assertNull($response->getTransactionReference());
-        $this->assertContains('https://sandbox.rentmoola.com/api/v2/payments?', $response->getRedirectUrl());
-
-        $this->assertSame($request->getAmount(), 10.00);
+        $this->assertContains('status=COMPLETE', $response->getRedirectUrl());
     }
 
     /**

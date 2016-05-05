@@ -52,43 +52,42 @@ abstract class AbstractRequest extends \Omnipay\Common\Message\AbstractRequest
         return $this->setParameter('code', $data);
     }
 
-    public function getData()
-    {
-        $this->validate('amount');
-        $data = array();
-
-        $data['userId'] = $this->getUserId();
-        $data['destinationAccountId'] = $this->getDestinationAccountId();
-        $data['charges'] = array();
-        $data['charges']['amount'] =  $this->getAmount();
-        $data['charges']['code'] =  $this->getCode();
-
-        return $data;
-    }
-
     public function getEndpoint()
     {
         return $this->getTestMode() ? $this->testEndpoint : $this->liveEndpoint;
     }
 
+    public function getAuthorizationValue()
+    {
+        return $this->getParameter('authorizationValue');
+    }
+    
+    public function setAuthorizationValue($data)
+    {
+        return $this->setParameter('authorizationValue', $data);
+    }
+    
     protected function sendRequest($method, $action, $data = null)
     {
+        /*
+         * Don't throw exceptions on 4xx errors
+         */
         $this->httpClient->getEventDispatcher()->addListener(
             'request.error',
             function ($event) {
                 if ($event['response']->isClientError()) {
                     $event->stopPropagation();
                 }
-        });
+            });
 
-        $url = $this->getEndpoint().$action;
-        $body = $data ? http_build_query($data) : null;
+        $url = $this->getEndpoint() . $action;
+        $body = json_encode($data);
+
         $httpRequest = $this->httpClient->createRequest($method, $url, null, $body);
         $httpRequest->setHeader('Content-type', 'application/json');
+        $httpRequest->setHeader('Authorization', $this->getAuthorizationValue());
 
-        echo "\n";
-        echo $httpRequest;
-        echo "\n";
         return $httpRequest->send();
     }
+
 }
