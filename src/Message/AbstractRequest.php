@@ -3,7 +3,7 @@
 namespace Omnipay\RentMoola\Message;
 
 /**
- * Coinbase Abstract Request
+ * RentMoola Abstract Request
  *
  * @method \Omnipay\RentMoola\Message\Response send()
  */

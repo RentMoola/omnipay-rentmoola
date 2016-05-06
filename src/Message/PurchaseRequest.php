@@ -23,6 +23,6 @@ class PurchaseRequest extends AbstractRequest
     {
         $httpResponse = $this->sendRequest('POST', '/payments', $data);
 
-        return $this->response = new PurchaseResponse($this, $httpResponse->json());
+        return $this->response = new Response($this, $httpResponse->json());
     }
 }

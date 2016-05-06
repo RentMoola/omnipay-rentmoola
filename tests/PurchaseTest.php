@@ -28,13 +28,11 @@ class PurchaseTest extends TestCase
             ]
         )->send();
 
-        $this->assertInstanceOf('Omnipay\RentMoola\Message\PurchaseResponse', $response);
+        $this->assertInstanceOf('Omnipay\RentMoola\Message\Response', $response);
         $this->assertTrue($response->isSuccessful());
-        $this->assertTrue($response->isRedirect());
-        $this->assertSame($response->getRedirectMethod(), 'GET');
+        $this->assertFalse($response->isRedirect());
         $this->assertSame($response->getStatus(), 'COMPLETE');
         $this->assertNotNull($response->getTransactionReference());
-        $this->assertContains('sandbox.rentmoola.com/api/v2/payments/', $response->getRedirectUrl());
     }
 
     public function testIncompletePurchase()
@@ -49,10 +47,9 @@ class PurchaseTest extends TestCase
             ]
         )->send();
 
-        $this->assertInstanceOf('Omnipay\RentMoola\Message\PurchaseResponse', $response);
+        $this->assertInstanceOf('Omnipay\RentMoola\Message\Response', $response);
         $this->assertFalse($response->isSuccessful());
-        $this->assertTrue($response->isRedirect());
-        $this->assertSame($response->getRedirectMethod(), 'GET');
+        $this->assertFalse($response->isRedirect());
         $this->assertNotNull($response->getErrorCode());
         $this->assertContains('not a code', $response->getErrorMessage());
     }

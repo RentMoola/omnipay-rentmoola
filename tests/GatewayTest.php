@@ -10,7 +10,10 @@ class GatewayTest extends GatewayTestCase
     {
         parent::setUp();
 
-        $this->gateway = new Gateway($this->getHttpClient(), $this->getHttpRequest());
+        $this->gateway = new Gateway(
+            $this->getHttpClient(),
+            $this->getHttpRequest()
+        );
         $this->gateway->setTestMode(true);
         $this->options = array(
             "userId" => "24a58d3c-4774-48bb-803a-b0ccc6b2d8d5",
@@ -23,17 +26,14 @@ class GatewayTest extends GatewayTestCase
         );
     }
 
-    public function testGetNameNotEmpty()
-    {
-        $name = $this->gateway->getName();
-        $this->assertNotEmpty($name, 'RentMoola');
-    }
-
     public function testPurchase()
     {
         $request = $this->gateway->purchase($this->options);
 
-        $this->assertInstanceOf('Omnipay\RentMoola\Message\PurchaseRequest', $request);
+        $this->assertInstanceOf(
+            'Omnipay\RentMoola\Message\PurchaseRequest',
+            $request
+        );
         $this->assertSame($request->getAmount(), '10.00');
     }
 
@@ -46,5 +46,15 @@ class GatewayTest extends GatewayTestCase
 
         $request = $this->gateway->purchase($this->options);
         $this->assertEmpty($request->getAmount());
+    }
+
+    public function testFetchPayment()
+    {
+        $request = $this->gateway->fetchPayment();
+
+        $this->assertInstanceOf(
+            'Omnipay\RentMoola\Message\FetchPaymentRequest',
+            $request
+        );
     }
 }
