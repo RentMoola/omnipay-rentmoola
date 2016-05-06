@@ -9,12 +9,12 @@ class PurchaseResponse extends AbstractResponse implements RedirectResponseInter
 {
     protected $liveEndpoint = 'https://www.rentmoola.com/api/v2';
     protected $testEndpoint = 'https://sandbox.rentmoola.com/api/v2';
-    
+
     public function isSuccessful()
     {
         return false;
     }
-    
+
     public function isRedirect()
     {
         return true;
@@ -22,15 +22,16 @@ class PurchaseResponse extends AbstractResponse implements RedirectResponseInter
 
     public function getRedirectUrl()
     {
-        $endpoint = $this->getRequest()->getTestMode() ? $this->testEndpoint : $this->liveEndpoint;
-        return $endpoint.'?'.http_build_query($this->data);
+        if (isset($this->data['url'])) {
+            return $this->data['url'];
+        }
     }
 
     public function getRedirectMethod()
     {
         return 'GET';
     }
-    
+
     public function getRedirectData()
     {
         return array();

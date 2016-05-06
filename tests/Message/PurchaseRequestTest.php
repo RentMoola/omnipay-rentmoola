@@ -39,6 +39,5 @@ class PurchaseRequestTests extends TestCase
         $this->assertSame('exDestinationAccountId', $data['destinationAccountId']);
         $this->assertSame('123.00', $data['charges'][0]['amount']);
         $this->assertSame('code.example', $data['charges'][0]['code']);
-       
     }
 }

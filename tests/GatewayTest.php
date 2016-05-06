@@ -32,14 +32,9 @@ class GatewayTest extends GatewayTestCase
     public function testPurchase()
     {
         $request = $this->gateway->purchase($this->options);
-        $response = $request->send();
 
+        $this->assertInstanceOf('Omnipay\RentMoola\Message\PurchaseRequest', $request);
         $this->assertSame($request->getAmount(), '10.00');
-
-        $this->assertFalse($response->isSuccessful());
-        $this->assertTrue($response->isRedirect());
-        $this->assertNull($response->getTransactionReference());
-        $this->assertContains('status=COMPLETE', $response->getRedirectUrl());
     }
 
     /**
