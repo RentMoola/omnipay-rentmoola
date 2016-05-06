@@ -16,7 +16,7 @@ class PurchaseTest extends TestCase
     }
 
 
-    public function testPurchase()
+    public function testSuccessfulPurchase()
     {
         $response = $this->gateway->purchase(
             [
@@ -29,10 +29,31 @@ class PurchaseTest extends TestCase
         )->send();
 
         $this->assertInstanceOf('Omnipay\RentMoola\Message\PurchaseResponse', $response);
+        $this->assertTrue($response->isSuccessful());
+        $this->assertTrue($response->isRedirect());
+        $this->assertSame($response->getRedirectMethod(), 'GET');
+        $this->assertSame($response->getStatus(), 'COMPLETE');
+        $this->assertNotNull($response->getTransactionReference());
+        $this->assertContains('sandbox.rentmoola.com/api/v2/payments/', $response->getRedirectUrl());
+    }
+
+    public function testIncompletePurchase()
+    {
+        $response = $this->gateway->purchase(
+            [
+                "userId" => "24a58d3c-4774-48bb-803a-b0ccc6b2d8d5",
+                "paymentMethodId" => "c4ec7ad4-5b20-456a-8ab5-5ad5c2300a17",
+                "destinationAccountId" => "23535718-e3a9-4b13-a28c-85f0838083b1",
+                "code" => "not a code",
+                "amount" => '10.00',
+            ]
+        )->send();
+
+        $this->assertInstanceOf('Omnipay\RentMoola\Message\PurchaseResponse', $response);
         $this->assertFalse($response->isSuccessful());
         $this->assertTrue($response->isRedirect());
         $this->assertSame($response->getRedirectMethod(), 'GET');
-        $this->assertNull($response->getTransactionReference());
-        $this->assertContains('sandbox.rentmoola.com/api/v2/payments/', $response->getRedirectUrl());
+        $this->assertNotNull($response->getErrorCode());
+        $this->assertContains('not a code', $response->getErrorMessage());
     }
 }

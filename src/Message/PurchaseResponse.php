@@ -12,7 +12,7 @@ class PurchaseResponse extends AbstractResponse implements RedirectResponseInter
 
     public function isSuccessful()
     {
-        return false;
+        return !isset($this->data['errorCode']);
     }
 
     public function isRedirect()
@@ -20,10 +20,38 @@ class PurchaseResponse extends AbstractResponse implements RedirectResponseInter
         return true;
     }
 
+    public function getTransactionReference()
+    {
+        if (isset($this->data['id'])) {
+            return $this->data['id'];
+        }
+    }
+
+    public function getErrorCode()
+    {
+        if (isset($this->data['errorCode'])) {
+            return $this->data['errorCode'];
+        }
+    }
+
+    public function getErrorMessage()
+    {
+        if (isset($this->data['message'])) {
+            return $this->data['message'];
+        }
+    }
+
     public function getRedirectUrl()
     {
         if (isset($this->data['url'])) {
             return $this->data['url'];
+        }
+    }
+
+    public function getStatus()
+    {
+        if (isset($this->data['status'])) {
+            return $this->data['status'];
         }
     }
 

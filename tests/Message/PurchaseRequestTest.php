@@ -3,7 +3,6 @@
 namespace Omnipay\RentMoola\Message;
 
 use Omnipay\Tests\TestCase;
-use Omnipay\RentMoola;
 
 class PurchaseRequestTests extends TestCase
 {
@@ -20,7 +19,7 @@ class PurchaseRequestTests extends TestCase
             )
         );
     }
-    
+
     public function testGetData()
     {
         $this->request->initialize(
