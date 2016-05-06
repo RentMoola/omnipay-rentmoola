@@ -6,10 +6,10 @@ class FetchPaymentRequest extends AbstractRequest
 {
     public function getData()
     {
-        $this->validate('transactionId');
+        $this->validate('transactionReference');
 
         $data = array();
-        $data['transactionId'] = $this->getTransactionId();
+        $data['transactionReference'] = $this->getTransactionReference();
 
         return $data;
     }
@@ -17,10 +17,10 @@ class FetchPaymentRequest extends AbstractRequest
     public function sendData($data)
     {
         $httpResponse = $this->sendRequest('GET',
-            '/payments'.$this->getTransactionRefernce(),
+            '/payments/'.$this->getTransactionReference(),
             $data
         );
 
-        return $this->response = new FetchPaymentRequest($this, $httpResponse->json());
+        return $this->response = new Response($this, $httpResponse->json());
     }
 }

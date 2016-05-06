@@ -15,7 +15,6 @@ class PurchaseTest extends TestCase
         $this->gateway->setPassword('test');
     }
 
-
     public function testSuccessfulPurchase()
     {
         $response = $this->gateway->purchase(
