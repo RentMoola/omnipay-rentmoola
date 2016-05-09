@@ -6,7 +6,7 @@ class PurchaseRequest extends AbstractRequest
 {
     public function getData()
     {
-        $this->validate('amount');
+        $this->validate('amount', 'paymentMethodId', 'destinationAccountId');
         $data = array();
 
         $data['userId'] = $this->getUserId();

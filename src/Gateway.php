@@ -62,6 +62,16 @@ class Gateway extends AbstractGateway
         return $this->setParameter('paymentMethodId', $data);
     }
 
+    public function getTransactionReference()
+    {
+        return $this->getParameter('transactionReference');
+    }
+
+    public function setTransactionReference($data)
+    {
+        return $this->setParameter('transactionReference');
+    }
+
     public function getCode()
     {
         return $this->getParameter('code');
@@ -79,7 +89,7 @@ class Gateway extends AbstractGateway
 
     public function setTransactionId($data)
     {
-        return $this->setParameter('transactionId');
+        return $this->setParameter('transactionId', $data);
     }
 
     public function getUserName()
@@ -122,6 +132,14 @@ class Gateway extends AbstractGateway
     {
         return $this->createRequest(
             '\Omnipay\RentMoola\Message\FetchPaymentRequest',
+            $parameters
+        );
+    }
+
+    public function refund(array $parameters = array())
+    {
+        return $this->createRequest(
+            '\Omnipay\RentMoola\Message\RefundRequest',
             $parameters
         );
     }

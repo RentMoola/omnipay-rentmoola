@@ -9,7 +9,6 @@ class FetchPaymentRequest extends AbstractRequest
         $this->validate('transactionReference');
 
         $data = array();
-        $data['transactionReference'] = $this->getTransactionReference();
 
         return $data;
     }
