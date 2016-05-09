@@ -23,6 +23,42 @@ class Response extends AbstractResponse
         return null;
     }
 
+    public function getPaymentMethodId()
+    {
+        if (isset($this->data['paymentMethodId'])) {
+            return $this->data['paymentMethodId'];
+        }
+
+        return null;
+    }
+
+    public function getAmount()
+    {
+        if (isset($this->data['total'])) {
+            return $this->data['total'];
+        }
+
+        return null;
+    }
+
+    public function getDestinationAccountId()
+    {
+        if (isset($this->data['destinationAccountId'])) {
+            return $this->data['destinationAccountId'];
+        }
+
+        return null;
+    }
+
+    public function getUserId()
+    {
+        if (isset($this->data['userId'])) {
+            return $this->data['userId'];
+        }
+
+        return null;
+    }
+
     public function getErrorCode()
     {
         if (isset($this->data['errorCode'])) {
