@@ -114,7 +114,7 @@ abstract class AbstractRequest extends \Omnipay\Common\Message\AbstractRequest
             });
 
         $url = $this->getEndpoint() . $action;
-        $body = json_encode($data);
+        $body = $data;
 
         $httpRequest = $this->httpClient->createRequest($method, $url, null, $body);
         $httpRequest->setHeader('Content-type', 'application/json');
