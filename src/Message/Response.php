@@ -23,15 +23,6 @@ class Response extends AbstractResponse
         return null;
     }
 
-    public function getPaymentMethodId()
-    {
-        if (isset($this->data['paymentMethodId'])) {
-            return $this->data['paymentMethodId'];
-        }
-
-        return null;
-    }
-
     public function getAmount()
     {
         if (isset($this->data['total'])) {

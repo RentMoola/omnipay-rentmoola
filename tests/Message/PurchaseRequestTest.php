@@ -60,6 +60,10 @@ class PurchaseRequestTests extends TestCase
 
         $this->assertFalse($response->isSuccessful());
         $this->assertFalse($response->isRedirect());
+        $this->assertNull($response->getStatus());
+        $this->assertNull($response->getTransactionReference());
+        $this->assertNull($response->getDestinationAccountId());
+        $this->assertNull($response->getUserId());
         $this->assertSame(616, $response->getErrorCode());
         $this->assertSame(
             'The payment method was not found.  Check the paymentMethodId provided.',

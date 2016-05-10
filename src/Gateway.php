@@ -69,7 +69,7 @@ class Gateway extends AbstractGateway
 
     public function setTransactionReference($data)
     {
-        return $this->setParameter('transactionReference');
+        return $this->setParameter('transactionReference', $data);
     }
 
     public function getCode()
@@ -80,16 +80,6 @@ class Gateway extends AbstractGateway
     public function setCode($data)
     {
         return $this->setParameter('code', $data);
-    }
-
-    public function getTransactionId()
-    {
-        return $this->getParameter('transactionId');
-    }
-
-    public function setTransactionId($data)
-    {
-        return $this->setParameter('transactionId', $data);
     }
 
     public function getUserName()
@@ -112,9 +102,17 @@ class Gateway extends AbstractGateway
         return $this->setParameter('password', $data);
     }
 
+    /**
+     * Uses the api username and password to return the authorization value
+     * required the the http request header
+     * @return mixed
+     */
     public function getAuthorizationValue()
     {
-        return $this->getParameter('authorizationValue');
+        return 'Basic '.
+            base64_encode($this->getUserName().
+            ":".
+            $this->getPassword());
     }
 
     /*

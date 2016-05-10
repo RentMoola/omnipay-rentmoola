@@ -1,0 +1,31 @@
+HTTP/1.1 200 OK
+Connection = keep-alive
+Content-Encoding = gzip
+Content-Length = 154
+Content-Type = application/json
+Date = Tue, 10 May 2016 16:32:47 GMT
+Vary = Accept-Encoding
+X-Frame-Options = SAMEORIGIN
+
+{
+    "id": "c8677f0a-4e0f-429f-9b44-30e136088a46",
+    "created": "2016-05-10T13:17:58-0700",
+    "total": 500.5,
+    "guaranteeAmount": 0,
+    "status": "COMPLETE",
+    "userId": "24a58d3c-4774-48bb-803a-b0ccc6b2d8d5",
+    "paymentMethodId": "c4ec7ad4-5b20-456a-8ab5-5ad5c2300a17",
+    "destinationAccountId": "23535718-e3a9-4b13-a28c-85f0838083b1",
+    "errorCode": null,
+    "errorMessage": null,
+    "charges": [
+        {
+            "code": "global.payments.other",
+            "amount": 500.5
+        },
+        {
+            "code": "global.payments.rmFee",
+            "amount": 13.76
+        }
+    ]
+}

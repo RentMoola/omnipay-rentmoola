@@ -57,4 +57,28 @@ class GatewayTest extends GatewayTestCase
             $request
         );
     }
+
+    public function testRefund()
+    {
+        $request = $this->gateway->refund($this->options);
+
+        $this->assertInstanceOf(
+            'Omnipay\RentMoola\Message\RefundRequest',
+            $request
+        );
+    }
+
+    public function testAuthorizationValue()
+    {
+        $this->gateway->setUserName("username");
+        $this->gateway->setPassword("password");
+
+        $this->assertSame('Basic dXNlcm5hbWU6cGFzc3dvcmQ=', $this->gateway->getAuthorizationValue());
+    }
+
+    public function testTransactionReference()
+    {
+        $this->assertSame($this->gateway, $this->gateway->setTransactionReference('abc123'));
+        $this->assertSame('abc123', $this->gateway->getTransactionReference());
+    }
 }
