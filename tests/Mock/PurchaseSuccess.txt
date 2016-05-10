@@ -1,0 +1,16 @@
+HTTP/1.1 200 OK
+Connection = keep-alive
+Content-Encoding = gzip
+Content-Length = 154
+Content-Type = application/json
+Date = Tue, 10 May 2016 16:32:47 GMT
+Vary = Accept-Encoding
+X-Frame-Options = SAMEORIGIN
+
+{
+    "id": "4ff053de-55d3-4930-82bf-154b0063208a",
+    "url": "https://sandbox.rentmoola.com/api/v2/payments/4ff053de-55d3-4930-82bf-154b0063208a",
+    "status": "COMPLETE",
+    "errorCode": null,
+    "errorMessage": null
+}

@@ -1,0 +1,13 @@
+HTTP/1.1 400 Bad Request
+Connection = keep-alive
+Content-Encoding = gzip
+Content-Length = 107
+Content-Type = application/json
+Date = Tue, 10 May 2016 16:32:47 GMT
+Vary = Accept-Encoding
+X-Frame-Options = SAMEORIGIN
+
+{
+  "errorCode": 616,
+  "message": "The payment method was not found.  Check the paymentMethodId provided."
+}

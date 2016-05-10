@@ -39,4 +39,31 @@ class PurchaseRequestTests extends TestCase
         $this->assertSame('123.00', $data['charges'][0]['amount']);
         $this->assertSame('code.example', $data['charges'][0]['code']);
     }
+
+    public function testSendSuccess()
+    {
+        $this->setMockHttpResponse('PurchaseSuccess.txt');
+        $response = $this->request->send();
+
+        $this->assertTrue($response->isSuccessful());
+        $this->assertFalse($response->isRedirect());
+        $this->assertNull($response->getErrorCode());
+        $this->assertNull($response->getErrorMessage());
+        $this->assertSame('COMPLETE', $response->getStatus());
+        $this->assertSame("4ff053de-55d3-4930-82bf-154b0063208a", $response->getTransactionReference());
+    }
+
+    public function testSendFailure()
+    {
+        $this->setMockHttpResponse('PurchaseFailure.txt');
+        $response = $this->request->send();
+
+        $this->assertFalse($response->isSuccessful());
+        $this->assertFalse($response->isRedirect());
+        $this->assertSame(616, $response->getErrorCode());
+        $this->assertSame(
+            'The payment method was not found.  Check the paymentMethodId provided.',
+            $response->getErrorMessage()
+        );
+    }
 }
