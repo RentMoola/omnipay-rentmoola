@@ -1,15 +1,10 @@
 {
-  "name": "omnipay/rentmoola",
+  "name": "shawg/omnipay-rentmoola",
   "type": "library",
   "description": "RentMoola driver for the Omnipay payment processing library",
   "keywords": [
     "rentmoola",
-    "RentMoola",
-    "cardsave",
-    "gateway",
-    "merchant",
-    "pay",
-    "payment"
+    "omnipay"
   ],
   "authors": [
     {
@@ -17,6 +12,7 @@
       "email": "geoff@rentmoola.com"
     }
   ],
+  "homepage": "https://gitlab.com/shawg/omnipay-rentmoola.git",
   "autoload": {
     "psr-4": { "Omnipay\\RentMoola\\" : "src/" }
   },

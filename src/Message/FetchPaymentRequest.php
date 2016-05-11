@@ -9,6 +9,7 @@ class FetchPaymentRequest extends AbstractRequest
         $this->validate('transactionReference');
 
         $data = array();
+        $data['transactionReference'] = $this->getTransactionReference();
 
         return $data;
     }
@@ -17,7 +18,7 @@ class FetchPaymentRequest extends AbstractRequest
     {
         $httpResponse = $this->sendRequest('GET',
             '/payments/'.$this->getTransactionReference(),
-            $data
+            null
         );
 
         return $this->response = new Response($this, $httpResponse->json());
