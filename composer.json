@@ -1,5 +1,5 @@
 {
-  "name": "RentMoola/omnipay-rentmoola",
+  "name": "rentmoola/omnipay-rentmoola",
   "type": "library",
   "description": "RentMoola driver for the Omnipay payment processing library",
   "keywords": [
