@@ -94,10 +94,7 @@ abstract class AbstractRequest extends \Omnipay\Common\Message\AbstractRequest
      */
     public function getAuthorizationValue()
     {
-        return 'Basic '.
-            base64_encode($this->getUserName().
-            ":".
-            $this->getPassword());
+        return 'Basic '.base64_encode($this->getUserName().":".$this->getPassword());
     }
 
     protected function sendRequest($method, $action, $data = null)
@@ -111,7 +108,8 @@ abstract class AbstractRequest extends \Omnipay\Common\Message\AbstractRequest
                 if ($event['response']->isClientError()) {
                     $event->stopPropagation();
                 }
-            });
+            }
+        );
 
         $url = $this->getEndpoint() . $action;
         // If the body is null, don't send an string representation of an

@@ -16,7 +16,8 @@ class FetchPaymentRequest extends AbstractRequest
 
     public function sendData($data)
     {
-        $httpResponse = $this->sendRequest('GET',
+        $httpResponse = $this->sendRequest(
+            'GET',
             '/payments/'.$this->getTransactionReference(),
             null
         );

@@ -109,10 +109,7 @@ class Gateway extends AbstractGateway
      */
     public function getAuthorizationValue()
     {
-        return 'Basic '.
-            base64_encode($this->getUserName().
-            ":".
-            $this->getPassword());
+        return 'Basic '.base64_encode($this->getUserName().":".$this->getPassword());
     }
 
     /*

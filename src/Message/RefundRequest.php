@@ -16,7 +16,8 @@ class RefundRequest extends AbstractRequest
 
     public function sendData($data)
     {
-        $httpResponse = $this->sendRequest('POST',
+        $httpResponse = $this->sendRequest(
+            'POST',
             '/payments/'.$this->getTransactionReference().'/refund',
             $data
         );
