@@ -1,6 +1,6 @@
 # Omnipay: RentMoola
 
-** RentMoola Driver for the Omnipay PHP payment processing library **
+### RentMoola Driver for the Omnipay PHP payment processing library
 
 [![Build Status](https://travis-ci.org/RentMoola/omnipay-rentmoola.png?branch=master)](https://travis-ci.org/RentMoola/omnipay-rentmoola)
 [![Latest Stable Version](https://poser.pugx.org/rentmoola/omnipay-rentmoola/version.png)](https://packagist.org/packages/rentmoola/omnipay-rentmoola)
@@ -15,7 +15,7 @@ to your `composer.json` file:
 ```json
 {
     "require": {
-        "shawg/omnipay-rentmoola": "~1.0"
+        "rentmoola/omnipay-rentmoola": "~1.0"
     }
 }
 ```
