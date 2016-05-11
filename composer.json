@@ -1,5 +1,5 @@
 {
-  "name": "shawg/omnipay-rentmoola",
+  "name": "RentMoola/omnipay-rentmoola",
   "type": "library",
   "description": "RentMoola driver for the Omnipay payment processing library",
   "keywords": [
@@ -12,7 +12,8 @@
       "email": "geoff@rentmoola.com"
     }
   ],
-  "homepage": "https://gitlab.com/shawg/omnipay-rentmoola.git",
+  "homepage": "https://github.com/RentMoola/omnipay-rentmoola.git",
+  "license": "MIT",
   "autoload": {
     "psr-4": { "Omnipay\\RentMoola\\" : "src/" }
   },
@@ -21,10 +22,5 @@
   },
   "require-dev": {
     "omnipay/tests": "~2.0"
-  },
-  "extra": {
-    "branch-alias": {
-      "dev-master": "2.0.x-dev"
-    }
   }
 }

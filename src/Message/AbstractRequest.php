@@ -117,8 +117,7 @@ abstract class AbstractRequest extends \Omnipay\Common\Message\AbstractRequest
         // If the body is null, don't send an string representation of an
         // empty json object
         $body = $data;
-        if($data)
-        {
+        if ($data) {
             $body = json_encode($data);
         }
 
