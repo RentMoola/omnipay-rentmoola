@@ -1,6 +1,9 @@
 # Omnipay: RentMoola
 
-### RentMoola Driver for the Omnipay PHP payment processing library
+** RentMoola Driver for the Omnipay PHP payment processing library **
+
+[![Build Status](https://travis-ci.org/RentMoola/omnipay-rentmoola.png?branch=master)](https://travis-ci.org/RentMoola/omnipay-rentmoola)
+[![Latest Stable Version](https://poser.pugx.org/rentmoola/omnipay-rentmoola/version.png)](https://packagist.org/packages/rentmoola/omnipay-rentmoola)
 
 [Omnipay](https://github.com/thephpleague/omnipay) is a framework agnostic, multi-gateway payment processing library for PHP 5.3+. This package implements RentMoola support for Omnipay.
 
