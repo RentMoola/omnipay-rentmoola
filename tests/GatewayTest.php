@@ -26,6 +26,37 @@ class GatewayTest extends GatewayTestCase
         );
     }
 
+    public function testCreateUser()
+    {
+        $this->gateway->setFirstName("firstname");
+        $this->gateway->setLastName("lastname");
+        $this->gateway->setEmail("email@email.com");
+        $this->gateway->setPropertyId("12345678");
+        $this->gateway->setPrimaryPaymentMethodId("23456789");
+        $this->gateway->setSuite("5");
+
+        $this->assertSame($this->gateway->getFirstName(), "firstname");
+        $this->assertSame($this->gateway->getLastName(), "lastname");
+        $this->assertSame($this->gateway->getEmail(), "email@email.com");
+        $this->assertSame($this->gateway->getPropertyId(), "12345678");
+        $this->assertSame($this->gateway->getPrimaryPaymentMethodId(), "23456789");
+        $this->assertSame($this->gateway->getSuite(), "5");
+
+        $request = $this->gateway->createUser();
+
+        $this->assertInstanceOf(
+            'Omnipay\RentMoola\Message\CreateUserRequest',
+            $request
+        );
+
+        $this->assertSame($request->getFirstName(), "firstname");
+        $this->assertSame($request->getLastName(), "lastname");
+        $this->assertSame($request->getEmail(), "email@email.com");
+        $this->assertSame($request->getPropertyId(), "12345678");
+        $this->assertSame($request->getPrimaryPaymentMethodId(), "23456789");
+        $this->assertSame($request->getSuite(), "5");
+    }
+
     public function testPurchase()
     {
         $request = $this->gateway->purchase($this->options);

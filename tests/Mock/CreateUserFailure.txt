@@ -1,0 +1,18 @@
+HTTP/1.1 200 OK
+Connection = keep-alive
+Content-Encoding = gzip
+Content-Length = 154
+Content-Type = application/json
+Date = Tue, 10 May 2016 16:32:47 GMT
+Vary = Accept-Encoding
+X-Frame-Options = SAMEORIGIN
+
+{
+  "error": [
+    {
+      "path": "createUser.arg1.email",
+      "message": "The email address you provided is invalid",
+      "value": "invalid"
+    }
+  ]
+}
