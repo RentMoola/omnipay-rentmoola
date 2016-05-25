@@ -11,7 +11,12 @@ class Response extends AbstractResponse
 
     public function isSuccessful()
     {
-        return !isset($this->data['errorCode']);
+        if (isset($this->data['errorCode'])
+            || isset($this->data['error'][0]['message'])
+        ) {
+            return false;
+        }
+        return true;
     }
 
     public function getTransactionReference()
@@ -64,7 +69,9 @@ class Response extends AbstractResponse
         if (isset($this->data['message'])) {
             return $this->data['message'];
         }
-
+        if (isset($this->data['error'][0]['message'])) {
+            return $this->data['error'][0]['message'];
+        }
         return null;
     }
 

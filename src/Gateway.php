@@ -42,6 +42,76 @@ class Gateway extends AbstractGateway
         return $this->setParameter('userId', $data);
     }
 
+    public function getFirstName()
+    {
+        return $this->getParameter('firstname');
+    }
+
+    public function setFirstName($data)
+    {
+        return $this->setParameter('firstname', $data);
+    }
+
+    public function getLastName()
+    {
+        return $this->getParameter('lastname');
+    }
+
+    public function setLastName($data)
+    {
+        return $this->setParameter('lastname', $data);
+    }
+
+    public function getEmail()
+    {
+        return $this->getParameter('email');
+    }
+
+    public function setEmail($data)
+    {
+        return $this->setParameter('email', $data);
+    }
+
+    public function getPropertyId()
+    {
+        return $this->getParameter('propertyId');
+    }
+
+    public function setPropertyId($data)
+    {
+        return $this->setParameter('propertyId', $data);
+    }
+
+    public function getSuite()
+    {
+        return $this->getParameter('suite');
+    }
+
+    public function setSuite($data)
+    {
+        return $this->setParameter('suite', $data);
+    }
+
+    public function getPrimaryPaymentMethodId()
+    {
+        return $this->getParameter('primaryPaymentMethodId');
+    }
+
+    public function setPrimaryPaymentMethodId($data)
+    {
+        return $this->setParameter('primaryPaymentMethodId', $data);
+    }
+
+    public function setTransactionReference($data)
+    {
+        return $this->setParameter('transactionReference', $data);
+    }
+
+    public function getTransactionReference()
+    {
+        return $this->getParameter('transactionReference');
+    }
+
     public function getDestinationAccountId()
     {
         return $this->getParameter('destinationAccountId');
@@ -60,16 +130,6 @@ class Gateway extends AbstractGateway
     public function setPaymentMethodId($data)
     {
         return $this->setParameter('paymentMethodId', $data);
-    }
-
-    public function getTransactionReference()
-    {
-        return $this->getParameter('transactionReference');
-    }
-
-    public function setTransactionReference($data)
-    {
-        return $this->setParameter('transactionReference', $data);
     }
 
     public function getCode()
@@ -119,6 +179,14 @@ class Gateway extends AbstractGateway
     {
         return $this->createRequest(
             '\Omnipay\RentMoola\Message\PurchaseRequest',
+            $parameters
+        );
+    }
+
+    public function createUser(array $parameters = array())
+    {
+        return $this->createRequest(
+            '\Omnipay\RentMoola\Message\CreateUserRequest',
             $parameters
         );
     }

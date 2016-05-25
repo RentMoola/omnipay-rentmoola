@@ -1,0 +1,14 @@
+HTTP/1.1 200 OK
+Connection = keep-alive
+Content-Encoding = gzip
+Content-Length = 154
+Content-Type = application/json
+Date = Tue, 10 May 2016 16:32:47 GMT
+Vary = Accept-Encoding
+X-Frame-Options = SAMEORIGIN
+
+{
+  "id": "2f6ca774-f0ee-4ca2-a3ca-d5cefcf270a6",
+  "url":
+"https://sandbox.rentmoola.com/api/v2/users/2f6ca774-f0ee-4ca2-a3ca-d5cefcf270a6"
+}
