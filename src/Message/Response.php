@@ -83,4 +83,67 @@ class Response extends AbstractResponse
 
         return null;
     }
+
+    public function getId()
+    {
+        if (isset($this->data['id'])) {
+            return $this->data['id'];
+        }
+
+        return null;
+    }
+
+    public function getFirstName()
+    {
+        if (isset($this->data['firstname'])) {
+            return $this->data['firstname'];
+        }
+
+        return null;
+    }
+
+    public function getLastName()
+    {
+        if (isset($this->data['lastname'])) {
+            return $this->data['lastname'];
+        }
+
+        return null;
+    }
+
+    public function getEmail()
+    {
+        if (isset($this->data['email'])) {
+            return $this->data['email'];
+        }
+
+        return null;
+    }
+
+    public function getSuite()
+    {
+        if (isset($this->data['suite'])) {
+            return $this->data['suite'];
+        }
+
+        return null;
+    }
+
+    public function getPropertyId()
+    {
+        if (isset($this->data['propertyId'])) {
+            return $this->data['propertyId'];
+        }
+
+        return null;
+    }
+
+    public function getPrimaryPaymentMethodId()
+    {
+        if (isset($this->data['primaryPaymentMethodId'])) {
+            return $this->data['primaryPaymentMethodId'];
+        }
+
+        return null;
+    }
 }

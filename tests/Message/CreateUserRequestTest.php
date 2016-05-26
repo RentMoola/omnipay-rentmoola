@@ -38,6 +38,7 @@ class CreateUserRequestTest extends TestCase
         $response = $this->request->send();
 
         $this->assertTrue($response->isSuccessful());
+        $this->assertSame("2f6ca774-f0ee-4ca2-a3ca-d5cefcf270a6", $response->getId());
     }
 
     public function testSendFailure()

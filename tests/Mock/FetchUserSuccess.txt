@@ -1,0 +1,18 @@
+HTTP/1.1 200 OK
+Connection = keep-alive
+Content-Encoding = gzip
+Content-Length = 154
+Content-Type = application/json
+Date = Tue, 10 May 2016 16:32:47 GMT
+Vary = Accept-Encoding
+X-Frame-Options = SAMEORIGIN
+
+{
+  "id": "0ff7ba61-1560-4d10-a1de-1b0edf29852f",
+  "firstname": "Joe",
+  "lastname": "Smith",
+  "email": "example@example.com",
+  "propertyId": "12345678",
+  "suite": "5",
+  "primaryPaymentMethodId": "23456789"
+}
