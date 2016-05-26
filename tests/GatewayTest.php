@@ -59,11 +59,11 @@ class GatewayTest extends GatewayTestCase
 
     public function testFetchUser()
     {
-        $request = $this->gateway->fetchUser(
-            [
-                "userId" => '0ff7ba61-1560-4d10-a1de-1b0edf29852f'
-            ]
+        $this->options = array(
+            "userId" => '0ff7ba61-1560-4d10-a1de-1b0edf29852f'
         );
+
+        $request = $this->gateway->fetchUser($this->options);
 
         $this->assertInstanceOf(
             'Omnipay\RentMoola\Message\FetchUserRequest',
