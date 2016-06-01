@@ -1,0 +1,15 @@
+HTTP/1.1 200 OK
+Connection = keep-alive
+Content-Encoding = gzip
+Content-Length = 154
+Content-Type = application/json
+Date = Tue, 10 May 2016 16:32:47 GMT
+Vary = Accept-Encoding
+X-Frame-Options = SAMEORIGIN
+
+{
+    "id": "5eda2706-6dcf-40c3-8679-da877f69300c",
+    "url": "https://sandbox.rentmoola.com/api/v2/users/05189902-c47c-41f4-8f8c-667d53e5bf50/payment-methods/5eda2706-6dcf-40c3-8679-da877f69300c",
+    "brand": "VI",
+    "funding": "CREDIT"
+}

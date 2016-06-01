@@ -42,6 +42,116 @@ abstract class AbstractRequest extends \Omnipay\Common\Message\AbstractRequest
         return $this->setParameter('lastname', $data);
     }
 
+    public function getName()
+    {
+        return $this->getParameter('name');
+    }
+
+    public function setName($data)
+    {
+        return $this->setParameter('name', $data);
+    }
+
+    public function getNumber()
+    {
+        return $this->getParameter('number');
+    }
+
+    public function setNumber($data)
+    {
+        return $this->setParameter('number', $data);
+    }
+
+    public function getCvc()
+    {
+        return $this->getParameter('cvc');
+    }
+
+    public function setCvc($data)
+    {
+        return $this->setParameter('cvc', $data);
+    }
+
+    public function getExpiryYear()
+    {
+        return $this->getParameter('expiryYear');
+    }
+
+    public function setExpiryYear($data)
+    {
+        return $this->setParameter('expiryYear', $data);
+    }
+
+    public function getExpiryMonth()
+    {
+        return $this->getParameter('expiryMonth');
+    }
+
+    public function setExpiryMonth($data)
+    {
+        return $this->setParameter('expiryMonth', $data);
+    }
+
+    public function getAddress1()
+    {
+        return $this->getParameter('address1');
+    }
+
+    public function setAddress1($data)
+    {
+        return $this->setParameter('address1', $data);
+    }
+
+    public function getAddress2()
+    {
+        return $this->getParameter('address2');
+    }
+
+    public function setAddress2($data)
+    {
+        return $this->setParameter('address2', $data);
+    }
+
+    public function getZip()
+    {
+        return $this->getParameter('zip');
+    }
+
+    public function setZip($data)
+    {
+        return $this->setParameter('zip', $data);
+    }
+
+    public function getCity()
+    {
+        return $this->getParameter('city');
+    }
+
+    public function setCity($data)
+    {
+        return $this->setParameter('city', $data);
+    }
+
+    public function getCountry()
+    {
+        return $this->getParameter('country');
+    }
+
+    public function setCountry($data)
+    {
+        return $this->setParameter('country', $data);
+    }
+
+    public function getState()
+    {
+        return $this->getParameter('state');
+    }
+
+    public function setState($data)
+    {
+        return $this->setParameter('state', $data);
+    }
+
     public function getEmail()
     {
         return $this->getParameter('email');
