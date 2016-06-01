@@ -19,6 +19,11 @@ class Response extends AbstractResponse
         return true;
     }
 
+    public function getData()
+    {
+        return $this->data;
+    }
+
     public function getCardBrand()
     {
         if (isset($this->data['brand'])) {
