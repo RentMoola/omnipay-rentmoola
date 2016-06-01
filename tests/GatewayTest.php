@@ -93,6 +93,16 @@ class GatewayTest extends GatewayTestCase
         $this->assertEmpty($request->getAmount());
     }
 
+    public function testCreateCCPaymentMethodRequest()
+    {
+        $request = $this->gateway->createCCPaymentMethod();
+
+        $this->assertInstanceOf(
+            'Omnipay\RentMoola\Message\CreateCCPaymentMethodRequest',
+            $request
+        );
+    }
+
     public function testFetchPayment()
     {
         $request = $this->gateway->fetchPayment();

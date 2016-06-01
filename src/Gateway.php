@@ -191,6 +191,14 @@ class Gateway extends AbstractGateway
         );
     }
 
+    public function createCCPaymentMethod(array $parameters = array())
+    {
+        return $this->createRequest(
+            '\Omnipay\RentMoola\Message\CreateCCPaymentMethodRequest',
+            $parameters
+        );
+    }
+
     public function fetchUser(array $parameters = array())
     {
         return $this->createRequest(

@@ -19,7 +19,25 @@ class Response extends AbstractResponse
         return true;
     }
 
+    public function getCardBrand()
+    {
+        if (isset($this->data['brand'])) {
+            return $this->data['brand'];
+        }
+
+        return null;
+    }
+
     public function getTransactionReference()
+    {
+        if (isset($this->data['id'])) {
+            return $this->data['id'];
+        }
+
+        return null;
+    }
+
+    public function getCardReference()
     {
         if (isset($this->data['id'])) {
             return $this->data['id'];
