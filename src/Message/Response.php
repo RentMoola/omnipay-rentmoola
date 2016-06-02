@@ -36,10 +36,28 @@ class Response extends AbstractResponse
         return null;
     }
 
-    public function getCardBrand()
+    public function getBrand()
     {
         if (isset($this->data['brand'])) {
             return $this->data['brand'];
+        }
+
+        return null;
+    }
+
+    public function getPaymentMethodType()
+    {
+        if (isset($this->data['type'])) {
+            return $this->data['type'];
+        }
+
+        return null;
+    }
+
+    public function getNumber()
+    {
+        if (isset($this->data['number'])) {
+            return $this->data['number'];
         }
 
         return null;
@@ -58,6 +76,24 @@ class Response extends AbstractResponse
     {
         if (isset($this->data['id'])) {
             return $this->data['id'];
+        }
+
+        return null;
+    }
+
+    public function getExpiryYear()
+    {
+        if (isset($this->data['expiryYear'])) {
+            return $this->data['expiryYear'];
+        }
+
+        return null;
+    }
+
+    public function getExpiryMonth()
+    {
+        if (isset($this->data['expiryMonth'])) {
+            return $this->data['expiryMonth'];
         }
 
         return null;

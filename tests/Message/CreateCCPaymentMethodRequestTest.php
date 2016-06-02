@@ -57,7 +57,7 @@ class CreateCCPaymentMethodRequestTest extends TestCase
         $this->assertFalse($response->isRedirect());
         $this->assertNull($response->getErrorMessage());
         $this->assertNull($response->getErrorCode());
-        $this->assertEquals('VI', $response->getCardBrand());
+        $this->assertEquals('VI', $response->getBrand());
         $this->assertEquals('5eda2706-6dcf-40c3-8679-da877f69300c', $response->getCardReference());
     }
 
@@ -69,7 +69,7 @@ class CreateCCPaymentMethodRequestTest extends TestCase
 
         $this->assertFalse($response->isSuccessful());
         $this->assertContains("valid credit card number", $response->getErrorMessage());
-        $this->assertNull($response->getCardBrand());
+        $this->assertNull($response->getBrand());
         $this->assertNull($response->getCardReference());
     }
 }

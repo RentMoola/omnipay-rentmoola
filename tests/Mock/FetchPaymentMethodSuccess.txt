@@ -1,0 +1,22 @@
+HTTP/1.1 200 OK
+Connection = keep-alive
+Content-Encoding = gzip
+Content-Length = 154
+Content-Type = application/json
+Date = Tue, 10 May 2016 16:32:47 GMT
+Vary = Accept-Encoding
+X-Frame-Options = SAMEORIGIN
+
+{
+  "id": "d502ad2d-e103-4e04-b2a2-fdd7c547eb06",
+  "type": "CC",
+  "name": "null null",
+  "destinationAccountId": null,
+  "address": null,
+  "number": "************1111",
+  "cvc": null,
+  "expiryMonth": 9,
+  "expiryYear": 18,
+  "brand": "VI",
+  "funding": "CREDIT"
+}
