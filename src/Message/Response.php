@@ -19,9 +19,21 @@ class Response extends AbstractResponse
         return true;
     }
 
-    public function getData()
+    public function getPaymentMethodList()
     {
-        return $this->data;
+        if (isset($this->data[0]['id'])) {
+            $cardList = array();
+            foreach ($this->data as $card) {
+                $newCard = array();
+                $newCard['id'] = $card['id'];
+                $newCard['type'] = $card['type'];
+                array_push($cardList, $newCard);
+            }
+
+            return $cardList;
+        }
+
+        return null;
     }
 
     public function getCardBrand()
