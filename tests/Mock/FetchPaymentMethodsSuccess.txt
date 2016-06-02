@@ -1,0 +1,25 @@
+HTTP/1.1 200 OK
+Connection = keep-alive
+Content-Encoding = gzip
+Content-Length = 154
+Content-Type = application/json
+Date = Tue, 10 May 2016 16:32:47 GMT
+Vary = Accept-Encoding
+X-Frame-Options = SAMEORIGIN
+
+ [
+  {
+    "id": "655c7b87-c703-4ee8-b1f5-dffe0251936f",
+    "type": "CC",
+    "name": "null null",
+    "destinationAccountId": null,
+    "address": null
+  },
+  {
+    "id": "9da88f3a-3073-4f3f-bfd4-ae6e404b51dc",
+    "type": "CC",
+    "name": "null null",
+    "destinationAccountId": null,
+    "address": null
+  }
+]
