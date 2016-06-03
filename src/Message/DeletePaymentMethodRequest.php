@@ -23,6 +23,10 @@ class DeletePaymentMethodRequest extends AbstractRequest
             null
         );
 
-        return $this->response = new Response($this, $httpResponse);
+        json_decode($httpResponse);
+        if ($httpResponse->getStatusCode() == 200) {
+            return $this->response = new Response($this, '[]');
+        }
+        return $this->response = new Response($this, $httpResponse->json());
     }
 }
