@@ -17,7 +17,6 @@ class DeletePaymentMethodRequestTest extends TestCase
     {
         $this->setMockHttpResponse('DeletePaymentMethodRequest.txt');
         $response = $this->request->send();
-        print_r($response->getData());
 
         $this->assertTrue($response->isSuccessful());
     }
@@ -27,7 +26,6 @@ class DeletePaymentMethodRequestTest extends TestCase
         $this->setMockHttpResponse('DeletePaymentMethodRequestFailure.txt');
         $this->request->setUserId('notAVaildUserId');
         $response = $this->request->send();
-        print_r($response->getData());
 
         $this->assertFalse($response->isSuccessful());
         $this->assertEquals(201, $response->getErrorCode());
