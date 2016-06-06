@@ -1,0 +1,23 @@
+HTTP/1.1 400 Bad Request
+Connection = keep-alive
+Content-Encoding = gzip
+Content-Length = 154
+Content-Type = application/json
+Date = Tue, 10 May 2016 16:32:47 GMT
+Vary = Accept-Encoding
+X-Frame-Options = SAMEORIGIN
+
+{
+  "error": [
+    {
+      "path": "updatePaymentMethodCC.arg3.name",
+      "message": "may not be empty",
+      "value": ""
+    },
+    {
+      "path": "updatePaymentMethodCC.arg3.number",
+      "message": "Enter your credit card number",
+      "value": ""
+    }
+  ]
+}
