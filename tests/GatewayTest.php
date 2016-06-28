@@ -166,4 +166,14 @@ class GatewayTest extends GatewayTestCase
         $this->assertSame($this->gateway, $this->gateway->setTransactionReference('abc123'));
         $this->assertSame('abc123', $this->gateway->getTransactionReference());
     }
+
+    public function testDeletePaymentMethod()
+    {
+        $request = $this->gateway->deletePaymentMethod($this->options);
+
+        $this->assertInstanceOf(
+            'Omnipay\RentMoola\Message\DeletePaymentMethodRequest',
+            $request
+        );
+    }
 }

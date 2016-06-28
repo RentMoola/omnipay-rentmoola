@@ -246,4 +246,12 @@ class Gateway extends AbstractGateway
             $parameters
         );
     }
+
+    public function deletePaymentMethod(array $parameters = array())
+    {
+        return $this->createRequest(
+            '\Omnipay\RentMoola\Message\DeletePaymentMethodRequest',
+            $parameters
+        );
+    }
 }
